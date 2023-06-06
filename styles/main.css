@@ -1,0 +1,133 @@
+@import url('reset.css');
+@import url('typography.css');
+@import url('components.css');
+
+:root {
+    --wash: #E4E6EB;
+    --light-blue: #1877f4;
+    --cloud-blue: #e7f3ff;
+    --grey-inputs: #f0f2f5;
+}
+
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--wash);
+}
+
+.nav_wrapper .header__logo {
+    height: 24px;
+}
+
+.right {
+    display: flex;
+}
+
+.nav_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* Main */
+
+main {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Sidebar */
+
+.sidebar {
+    width: 420px;
+    min-width: 420px;
+    border-right: solid 1px var(--wash);
+    border-bottom: solid 1px var(--wash);
+    padding-left: 80px;
+    padding-right: 20px;
+}
+
+.sidebar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    /* padding-left: 20px; */
+}
+
+.sidebar__header h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;;
+}
+
+.sidebar__header__menu {
+    display: flex;
+    gap: 12px;
+}
+
+
+
+.profile_info {
+    display: none;
+}
+
+.sidebar__search {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.sidebar__search__wrapper {
+    display: flex;
+    align-items: center;
+    
+}
+
+.sidebar__search span{
+    display: flex;
+    align-items: center;
+    background-color: var(--wash);
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    padding: 0 8px;
+}
+
+.sidebar__search__wrapper>.input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    flex-grow: 1;
+    flex-grow: 1;
+}
+
+.sidebar__search span img{
+    width: 14px;
+}
+
+
+.sidebar__menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.sidebar__menu div {
+    display: flex;
+    align-items: center;
+    color: black;
+    background-color: white;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+.sb_m_clicked.sb_m_clicked {
+    color: var(--light-blue);
+    background-color: var(--cloud-blue);
+}

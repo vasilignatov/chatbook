@@ -1,0 +1,41 @@
+
+.circle {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 18px;
+    background-color: #f0f2f5;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle__img {
+    width: 100%;
+}
+
+.input {
+    height: 36px;
+    width: auto;
+    border: 0px solid;
+    outline: none;
+    background-color: var(--wash);
+    border-radius: 18px;
+}
+
+input:focus {
+    border: 0px solid;
+}
+
+
+.cont-height  {
+    height: 36px;
+}
+
+.cont-box {
+    border-radius: 18px;
+    padding-right: 12px;
+    padding-left: 12px;
+
+}
