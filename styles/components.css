@@ -39,3 +39,16 @@ input:focus {
     padding-left: 12px;
 
 }
+
+.profile_info__header__img_wp {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;    
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}

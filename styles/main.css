@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&display=swap');
+
 @import url('reset.css');
 @import url('typography.css');
 @import url('components.css');
+
 
 :root {
     --wash: #E4E6EB;
@@ -9,6 +12,13 @@
     --grey-inputs: #f0f2f5;
 }
 
+body {
+    font-family: 'Geologica', sans-serif;
+}
+
+main {
+    display: flex;
+}
 
 /* Header */
 .header {
@@ -44,12 +54,14 @@ main {
 /* Sidebar */
 
 .sidebar {
-    width: 420px;
+    display: flex;
+    flex-direction: column;
+    /* width: 420px; */
     min-width: 420px;
     border-right: solid 1px var(--wash);
     border-bottom: solid 1px var(--wash);
     padding-left: 80px;
-    padding-right: 20px;
+    height: calc(100vh - 57px);
 }
 
 .sidebar__header {
@@ -63,32 +75,37 @@ main {
 .sidebar__header h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
-    font-size: 1.6rem;;
+    font-size: 1.6rem;
+    ;
 }
 
 .sidebar__header__menu {
     display: flex;
     gap: 12px;
+    padding-right: 18px;
 }
 
 
 
 .profile_info {
-    display: none;
+    /* display: none; */
+    min-width: 380px;
 }
 
 .sidebar__search {
     width: 100%;
     padding-top: 10px;
+    padding-right: 18px;
+
 }
 
 .sidebar__search__wrapper {
     display: flex;
     align-items: center;
-    
+
 }
 
-.sidebar__search span{
+.sidebar__search span {
     display: flex;
     align-items: center;
     background-color: var(--wash);
@@ -104,7 +121,7 @@ main {
     flex-grow: 1;
 }
 
-.sidebar__search span img{
+.sidebar__search span img {
     width: 14px;
 }
 
@@ -130,4 +147,105 @@ main {
 .sb_m_clicked.sb_m_clicked {
     color: var(--light-blue);
     background-color: var(--cloud-blue);
+}
+
+
+/* History (users) */
+div.sidebar__history {
+    height: auto;
+    height: calc(100% - (52px + 46px + 46px +10px));
+    margin-top: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+}
+
+div.sidebar__history__cell {
+    min-width: auto;
+    height: auto;
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    border-radius: 8px;
+}
+
+div.sidebar__history__cell img {
+    width: 100%;
+}
+
+div.sidebar__history__cell__img_wp {
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+div.sidebar__history__cell__wrapper {
+    padding-left: 12px;
+}
+
+.sidebar__history__cell__username {
+    font-weight: 500;
+    padding-bottom: 6px;
+}
+
+.sidebar__history__cell__message {
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: rgba(77, 74, 74, 0.89)
+}
+
+div.selected {
+    background-color: var(--cloud-blue);
+}
+
+div.sidebar__history__cell:hover:not(.selected) {
+    background-color: var(--grey-inputs);
+}
+
+
+/* Chat Area */
+
+div.chatarea {
+    flex-grow: 1;
+}
+
+/* Profile Info */
+.profile_info {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+}
+
+.profile_info__header {
+     display: flex;
+     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_info__header__img_wp {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;    
+}
+
+.profile_info__icons_wp {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.profile_info__icons_wp .icon-box {
+    width: 80px;
+    padding-right: 6px 3px 6px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile_info__icons_wp .icon-box {
+    font-weight: 300;
+    color: rgba(77, 74, 74, 0.89);
 }
