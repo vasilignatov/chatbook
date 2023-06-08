@@ -1,4 +1,3 @@
-
 .circle {
     width: 36px;
     height: 36px;
@@ -12,7 +11,7 @@
 }
 
 .circle__img {
-    width: 100%;
+    height: 100%;
 }
 
 .input {
@@ -29,7 +28,7 @@ input:focus {
 }
 
 
-.cont-height  {
+.cont-height {
     height: 36px;
 }
 
@@ -43,12 +42,35 @@ input:focus {
 .profile_info__header__img_wp {
     width: 80px;
     height: 80px;
-    border-radius: 40px;    
+    border-radius: 40px;
 }
 
 .dropdown {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.85rem;
+    height: 44px;
+    border-radius: 8px;
+    padding-left: 8px;
+}
 
+.dropdown:hover {
+    background-color: var(--wash);
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
 }

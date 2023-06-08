@@ -12,6 +12,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" type="text/css"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -59,14 +62,14 @@
             </div>
 
             <div class="sidebar__menu">
-                <div class="cont-box cont-height sb_m_clicked">Входяща кутия</div>
-                <div class="cont-box cont-height">Общности</div>
+                <div class="cont-box cont-height sb_m_clicked noselect">Входяща кутия</div>
+                <div class="cont-box cont-height noselect">Общности</div>
             </div>
 
 
             <div class="sidebar__history">
 
-                <div class="sidebar__history__cell selected">
+                <div class="sidebar__history__cell noselect selected">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -76,7 +79,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -86,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -96,7 +99,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -106,7 +109,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -116,7 +119,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -126,7 +129,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -136,7 +139,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -146,7 +149,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -156,7 +159,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -166,7 +169,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -176,7 +179,7 @@
                     </div>
                 </div>
 
-                <div class="sidebar__history__cell">
+                <div class="sidebar__history__cell noselect">
                     <div class="sidebar__history__cell__img_wp">
                         <img src="imgs/user_img.jpg" alt="User image">
                     </div>
@@ -194,9 +197,73 @@
 
         <!--  -->
         <section class="chatarea">
-            <h2>CHAT AREA</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sequi at laborum fuga aut tempore nihil nisi
-                alias voluptatibus aliquam libero, maiores deleniti vel similique iure omnis unde error dolorem.</p>
+
+            <div class="chatarea__header">
+                <div class="chatarea__header__user">
+                    <div class="user-img-wp">
+                        <img src="imgs/user_img.jpg" alt="User img">
+                    </div>
+                    <div class="user-info">
+                        <h3>Велислав Боянов</h3>
+                        <p>На линия в момента</p>
+                    </div>
+                </div>
+
+
+                <div class="chatarea__header__icons">
+                    <div class="icons_wp">
+
+                        <span class="circle">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+                        <span class="circle">
+                            <i class="fa-solid fa-video"></i>
+                        </span>
+                        <span class="circle">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="chatarea__messages">
+               <!-- COMENTS -->
+            </div>
+
+            <div class="chatarea__useraction">
+
+                <div class="useraction_container noselect">
+                    <span class="circle">
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </span>
+
+                    <span class="circle">
+                        <i class="fa-solid fa-images"></i>
+                    </span>
+
+                    <span class="circle">
+                        <i class="fa-solid fa-note-sticky"></i>
+                    </span>
+
+                    <span class="circle">
+                        <i>GIF</i>
+                    </span>
+                </div>
+
+                <div class="useraction__input">
+                    <input class="input" type="text" placeholder="Aa">
+                    <span class="cont-height">
+                        <i class="fa-solid fa-face-smile"></i>
+                    </span>
+                </div>
+
+                <div class="useraction__like-btn">
+                    <span class="circle">
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </span>
+                </div>
+            </div>
         </section>
 
 
@@ -221,14 +288,14 @@
 
                 <div class="icon-box">
                     <span class="circle">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-bell"></i>
                     </span>
                     <p>Изключване на звука</p>
                 </div>
 
                 <div class="icon-box">
                     <span class="circle">
-                        <i class="fa-solid fa-bell"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </span>
                     <p>Търсене</p>
                 </div>
@@ -236,17 +303,17 @@
 
             <div class="profile_info__dropdown-wp">
 
-                <div class="dropdown">
+                <div class="dropdown noselect">
                     <h4>Пресонализиране на чата</h4>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
 
-                <div class="dropdown">
+                <div class="dropdown noselect">
                     <h4>Media & files</h4>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
 
-                <div class="dropdown">
+                <div class="dropdown noselect">
                     <h4>Поверителност и поддръжка</h4>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
