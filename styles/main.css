@@ -310,6 +310,8 @@ div.sidebar__history__cell:hover:not(.selected) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     flex-grow: 1;
+    padding-left: 12px;
+
 }
 
 .useraction__input>span {
@@ -336,14 +338,42 @@ div.sidebar__history__cell:hover:not(.selected) {
 
 /* Messages */
 .chatarea__messages {
-    height: calc(100vh - 64px - 57px - 60px);
-    flex-grow: 1;
+    height: calc(100vh - 64px - 57px - 60px - 1px);
+    width: auto;
     display: flex;
-    flex-direction: column;
+    flex-grow: 1;
     flex-wrap: wrap;
     overflow-x: none;
     overflow-y: auto;
+    gap: 6px;
 }
+
+.chatarea__messages__wrapper {
+    padding: 0 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+}
+
+.message_row {
+    height: 36px;
+    display: flex;
+    align-items: center;
+
+}
+
+.message_row__content {
+    border-radius: 18px;
+    height: 100%;
+    display: flex;
+    justify-content: baseline;
+    padding: 8px 16px;  
+    margin-left: 8px;
+}
+
+
+
 
 
 

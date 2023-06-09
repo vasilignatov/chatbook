@@ -74,3 +74,52 @@ input:focus {
     /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
 }
+
+.message_row__content {
+    background-color: var(--light-blue);
+    border-radius: 18px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;    
+}
+
+
+/* Chat area message types */
+
+.message_row.fr {
+    justify-content: flex-start;
+}
+.message_row.user {
+    justify-content: flex-end;
+    
+}
+
+.message_row.fr .circle {
+    width: 28px;
+    height: 28px;
+}
+
+.message_row.user>.message_row__content{
+    background-color: var(--light-blue);
+    color: white;
+}
+
+.message_row.fr>.message_row__content   {
+    background-color: var(--wash);
+    color: black;
+}
+
+
+
+/*
+    TODO:
+    user message:
+    friend line message
+    
+    
+    - uslm -> single line message -> all borders have same radius
+    - uflm -> first line message
+    - umlm -> middle line message
+    - ullm -> last line message
+*/
