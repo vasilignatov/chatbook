@@ -81,45 +81,86 @@ input:focus {
     height: 100%;
     display: flex;
     justify-content: center;
-    padding: 8px 16px;    
+    padding: 8px 16px;
 }
 
 
 /* Chat area message types */
 
-.message_row.fr {
+
+/* Friend message row */
+.fr {
     justify-content: flex-start;
 }
-.message_row.user {
+
+/* Current user message row */
+.user {
     justify-content: flex-end;
-    
+
 }
 
+/* Friend message row - image */
 .message_row.fr .circle {
     width: 28px;
     height: 28px;
 }
 
-.message_row.user>.message_row__content{
+.message_row.user>.message_row__content {
     background-color: var(--light-blue);
     color: white;
 }
 
-.message_row.fr>.message_row__content   {
+.message_row.fr>.message_row__content {
     background-color: var(--wash);
     color: black;
 }
 
+/* USER Messages */
 
+/* - uslm -> user single line message -> all borders have same radius */
+.uslm {
+    border-radius: 18px;
+}
+
+/* - uflm -> first line message */
+.uflm {
+    border-bottom-right-radius: 5px !important;
+}
+
+/* - umlm -> middle line message */
+.umlm {
+    border-bottom-right-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+}
+
+/* - ullm -> last line message */
+.ullm {
+    border-top-right-radius: 5px !important;
+}
+
+
+
+/* FRIEND Messages */
+.fslm {
+    border-radius: 18px;
+}
+
+.fflm {
+    border-bottom-left-radius: 5px !important;
+}
+
+.fmlm {
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+}
+
+.fllm {
+    border-top-left-radius: 5px!important;
+}
 
 /*
-    TODO:
-    user message:
-    friend line message
-    
-    
-    - uslm -> single line message -> all borders have same radius
-    - uflm -> first line message
-    - umlm -> middle line message
-    - ullm -> last line message
+    - fslm -> single line message -> all borders have same radius
+    - fflm -> first line message
+    - fmlm -> middle line message
+    - fllm -> last line message
 */
