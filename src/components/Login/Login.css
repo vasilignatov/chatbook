@@ -1,0 +1,102 @@
+.login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--grey-inputs);
+    padding: 40px;
+}
+
+.login__container {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 40px;
+}
+
+.login__header {
+    font-family: 'Klavika';
+    font-weight: bold;
+    font-size: 52px;
+    color: var(--blue);
+    letter-spacing: -0.05rem;
+}
+
+.login__subheader {
+    margin-top: 16px;
+}
+
+.heading_sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+}
+
+.input_sec {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    max-width: 396px;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1),
+        0 8px 16px rgba(0, 0, 0, .1);
+
+}
+
+.input_sec form input:nth-of-type(-n+2) {
+    margin-bottom: 12px;
+}
+
+.input_sec input {
+    padding: 14px 16px;
+    border-radius: 3px;
+    border: solid 0.5px var(--wash);
+    width: 100%;
+}
+
+
+.btn.submit {
+    background-color: var(--blue);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: -0.05rem;
+    padding: 10px 16px;
+}
+
+.btn.newProfile {
+    background-color: var(--green);
+    color: white;
+    padding: 14px 0;
+    width: 80%;
+    align-self: center;
+}
+
+.forgoten-pass {
+    margin-top: 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: -0.05rem;
+    color: var(--blue);
+}
+
+.btn {
+    border-radius: 7px !important;
+    border: none;
+}
+
+hr {
+    background-color: var();
+    width: 100%;
+    margin: 20px 0;
+}
+
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: solid 0.5px var(--blue) !important;
+}

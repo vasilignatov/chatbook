@@ -2,13 +2,19 @@
 
 @import url('reset.css');
 @import url('typography.css');
-@import url('components.css');
+@import url('messanger.css');
 
+
+@font-face {
+    font-family: 'Klavika';
+    src: url('../fonts/klavika-bold.otf');
+}
 
 :root {
     --wash: #E4E6EB;
     --blue: #0084ff;
-    --light-blue: #1877f4;
+    --green: #42b72a;
+    --light-blue: #1877f2;
     --cloud-blue: #e7f3ff;
     --grey-inputs: #f0f2f5;
     --cloud-grey: #BCC0C4;
@@ -82,9 +88,6 @@ main {
     gap: 12px;
     padding-right: 18px;
 }
-
-
-
 
 
 .sidebar__search {

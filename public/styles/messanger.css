@@ -96,7 +96,6 @@ input:focus {
 /* Current user message row */
 .user {
     justify-content: flex-end;
-
 }
 
 /* Friend message row - image */
