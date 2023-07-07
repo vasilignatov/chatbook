@@ -1,4 +1,7 @@
 const Chatarea = () => {
+
+
+    
     return (
         <section className="chatarea">
             <div className="chatarea__header">

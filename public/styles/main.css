@@ -148,12 +148,19 @@ main {
 
 
 /* History (users) */
+
+
 div.sidebar__history {
     height: calc(100% - (52px + 46px + 46px +10px));
     margin-top: 10px;
     overflow-y: auto;
     overflow-x: hidden;
     flex-direction: column;
+}
+
+.sidebar__history a {
+    text-decoration: none;
+    color: initial;
 }
 
 div.sidebar__history__cell {
