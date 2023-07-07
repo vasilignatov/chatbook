@@ -73,6 +73,8 @@
     padding: 14px 0;
     width: 80%;
     align-self: center;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .forgoten-pass {
