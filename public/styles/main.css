@@ -163,7 +163,7 @@ div.sidebar__history {
     color: initial;
 }
 
-div.sidebar__history__cell {
+.sidebar__history__cell {
     height: auto;
     padding: 8px;
     display: flex;
@@ -174,18 +174,18 @@ div.sidebar__history__cell {
     margin-right: 8px;
 }
 
-div.sidebar__history__cell img {
+.sidebar__history__cell img {
     width: 100%;
 }
 
-div.sidebar__history__cell__img_wp {
+.sidebar__history__cell__img_wp {
     max-width: 56px;
     max-height: 56px;
     border-radius: 28px;
     overflow: hidden;
 }
 
-div.sidebar__history__cell__wrapper {
+.sidebar__history__cell__wrapper {
     padding-left: 12px;
     width: 100%;
     white-space: nowrap;
@@ -204,11 +204,11 @@ div.sidebar__history__cell__wrapper {
     color: rgba(77, 74, 74, 0.89)
 }
 
-div.selected {
+a.active {
     background-color: var(--cloud-blue);
 }
 
-div.sidebar__history__cell:hover:not(.selected) {
+.sidebar__history__cell:hover:not(.active) {
     background-color: var(--grey-inputs);
 }
 
