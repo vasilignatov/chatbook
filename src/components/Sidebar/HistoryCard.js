@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useSelectedChat } from '../../contexts/userContext.js';
+import { useSelectedChat } from '../../contexts/UserContext.js';
 
 const HistoryCard = ({ userData }) => {
 
