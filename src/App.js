@@ -1,31 +1,18 @@
-import Header from './components/Header/Header.js';
-import Sidebar from './components/Sidebar/Sidebar.js';
-import Chatarea from './components/Chararea/Chatarea';
-import ProfileInfo from './components/ProfileInfo/ProfileInfo';
-import Login from './components/Login/Login.js';
-import SelectedUserProvider from './contexts/userContext';
+import Auth from './components/Auth/Auth.js';
+import Main from './components/Main/Main.js';
 import { Route, Routes } from 'react-router-dom';
+
 
 function App() {
   return (
     <>
+      <Routes>
+        <Route path='/' element={<Auth />} />
+        <Route path='/chat' element={<Main />} />
 
-      {/* <Login /> */}
-
-
-      <Header />
-
-      <SelectedUserProvider>
-        <main>
-
-          <Sidebar />
-
-          <Chatarea />
-
-          <ProfileInfo />
-
-        </main>
-      </SelectedUserProvider>
+        {/* TODO 404 Page */}
+        {/* <Route path="*" element={<Navigate to="404" />} /> */}
+      </Routes>
     </>
   );
 }
