@@ -2,7 +2,6 @@ import { useContext, createContext, useState } from 'react';
 
 const SelectedUserContext = createContext();
 
-
 const SelectedUserProvider = ({ children }) => {
     const [selectedUserId, setSelectedUserId] = useState(0);
 
