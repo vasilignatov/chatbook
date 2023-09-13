@@ -3,14 +3,15 @@ import './Auth.css';
 import Alert from 'react-bootstrap/Alert';
 import RegisterModal from './RegisterModal.js';
 import { login } from '../../services/authService.js';
+import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const [error, setError] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
-
-    const navigate = useNavigate();
+    const { onLogin } = useAuth();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -30,12 +31,19 @@ const Login = () => {
             setErrorMsg('Моля въведете парола (минимум 8 символа)');
             return;
         }
+
         setError(false);
         setErrorMsg('');
 
-        const response = await login(email, password);
-        console.log(response);
-
+        const { user, tokens } = await login(email, password);
+        onLogin({
+            id: user.id,
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            accessToken: tokens.access.token,
+            refreshToken: tokens.refresh.token
+        });
         navigate('/chat');
     }
 

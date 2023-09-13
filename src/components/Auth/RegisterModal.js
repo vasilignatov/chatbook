@@ -7,11 +7,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { useNavigate } from 'react-router-dom';
-
+import { useAuth } from '../../contexts/AuthContext';
 import * as authService from '../../services/authService.js';
 
 const RegisterModal = ({ show, handleClose, handleShow }) => {
-
+    const { onLogin } = useAuth();
     const [error, setError] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
 
@@ -47,14 +47,21 @@ const RegisterModal = ({ show, handleClose, handleShow }) => {
         }
         setError(false);
         setErrorMsg('');
-        console.log(formData);
+
         const response = await authService.register(formData);
         if (response.statusCode == 400) {
             setError(true);
             setErrorMsg(response.message);
             return;
         }
-        
+        onLogin({
+            id: response.user.id,
+            email: response.user.email,
+            firstName: response.user.firstName,
+            lastName: response.user.lastName,
+            accessToken: response.tokens.access.token,
+            refreshToken: response.tokens.refresh.token
+        });
         navigate('/chat');
     }
 
