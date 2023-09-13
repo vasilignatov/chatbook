@@ -61,11 +61,11 @@ main {
 .sidebar {
     display: flex;
     flex-direction: column;
-    min-width: 420px;
-    max-width: 420px;
+    min-width: 368px;
+    max-width: 368px;
     border-right: solid 1px var(--wash);
     border: solid 1px var(--wash);
-    padding-left: 72px;
+    padding-left: 12px;
     height: calc(100vh - 57px);
 }
 
@@ -191,6 +191,11 @@ div.sidebar__history {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.sidebar__history__cell__username,
+.sidebar__history__cell__message {
+    margin-bottom: 0;
 }
 
 .sidebar__history__cell__username {
@@ -337,9 +342,8 @@ a.active {
     color: var(--light-blue);
     font-size: 1.2rem;
 }
-.useraction__input>span>i {
 
-}
+.useraction__input>span>i {}
 
 .useraction__like-btn .circle>i {
     font-size: 1.3rem;
@@ -379,7 +383,7 @@ a.active {
     height: 100%;
     display: flex;
     justify-content: baseline;
-    padding: 8px 16px;  
+    padding: 8px 16px;
     margin-left: 8px;
 }
 
