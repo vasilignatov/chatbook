@@ -24,7 +24,6 @@ const Header = () => {
                 </span>
             </div>
         </header>
-
     )
 }
 
