@@ -3,13 +3,9 @@ import { useSelectedChat } from '../../contexts/UserContext.js';
 
 const HistoryCard = ({ userData }) => {
 
-    const { selectedUserId, selectUserId } = useSelectedChat();
-
-    console.log('selected: ', selectedUserId);
-
     return (
-        <NavLink
-            to={`/messages/${userData.userId}`}
+        <NavLink 
+            to={`messages/${userData.userId}`}
             className={({ isActive, isPending }) =>
                 isActive
                     ? 'sidebar__history__cell noselect active'
@@ -27,4 +23,4 @@ const HistoryCard = ({ userData }) => {
     )
 }
 
-export default HistoryCard;
+export default HistoryCard; 

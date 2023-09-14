@@ -1,38 +1,34 @@
 import HistoryCard from './HistoryCard';
-import { Routes } from 'react-router-dom';
 
-
+const chatHistory = [
+    {
+        'userId': '1234aslkdflknj12123',
+        'name': 'Велислав Боянов',
+        'imageUrl': 'imgs/user_img.jpg',
+        'lastMessage': 'Какво правиш?',
+        'roomId': 1231231854987
+    },
+    {
+        'userId': '1j121234fasdff41546s',
+        'name': 'Nikolai Petkov',
+        'imageUrl': 'imgs/user_img.jpg',
+        'lastMessage': 'Как си?',
+        'roomId': 1231897987789
+    },
+    {
+        'userId': '12асдф4654654а6сд543',
+        'name': 'Strahil Stoqnov',
+        'imageUrl': 'imgs/user_img.jpg',
+        'lastMessage': 'Какво правиш?',
+        'roomId': 1223185498731
+    },
+]
 
 const Sidebar = () => {
 
-
-    const chatHistory = [
-        {
-            'userId': '1234aslkdflknj12123',
-            'name': 'Велислав Боянов',
-            'imageUrl': 'imgs/user_img.jpg',
-            'lastMessage': 'Какво правиш?',
-            'roomId': 1231231854987
-        },
-        {
-            'userId': '1j121234fasdff41546s',
-            'name': 'Nikolai Petkov',
-            'imageUrl': 'imgs/user_img.jpg',
-            'lastMessage': 'Как си?',
-            'roomId': 1231897987789
-        },
-        {
-            'userId': '12асдф4654654а6сд543',
-            'name': 'Strahil Stoqnov',
-            'imageUrl': 'imgs/user_img.jpg',
-            'lastMessage': 'Какво правиш?',
-            'roomId': 1223185498731
-        },
-    ]
-
-
     return (
-        <section className="sidebar">
+
+        <aside className="sidebar">
 
             <div className="sidebar__header">
                 <h1>Чатове</h1>
@@ -64,13 +60,15 @@ const Sidebar = () => {
             {/* HISTORY CONTAINER */}
             <div className="sidebar__history">
 
-                
+
                 {
                     chatHistory.map((x, i) => {
                         return <HistoryCard key={x.userId} userData={x} />
                     })
                 }
-                
+
+
+
                 {
                     /* <div className="sidebar__history__cell noselect">
                     <div className="sidebar__history__cell__img_wp">
@@ -84,7 +82,7 @@ const Sidebar = () => {
                 */}
 
             </div>
-        </section>
+        </aside>
 
     )
 }

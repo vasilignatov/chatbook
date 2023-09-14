@@ -1,21 +1,20 @@
 import { useContext, createContext, useState } from 'react';
 
-const SelectedUserContext = createContext();
+export const SelectedUserContext = createContext();
 
 const SelectedUserProvider = ({ children }) => {
     const [selectedUserId, setSelectedUserId] = useState(0);
 
-    console.log(selectedUserId);
-    const selectUserId = (userId) => {
+    const setUserId = (userId) => {
         setSelectedUserId(userId);
     }
 
     return (
         <SelectedUserContext.Provider
-            value={
+            value={{
                 selectedUserId,
-                selectUserId
-            }
+                setUserId
+            }}
         >
             {children}
         </SelectedUserContext.Provider>
