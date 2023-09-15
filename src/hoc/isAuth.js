@@ -1,5 +1,7 @@
 import { useAuth } from '../contexts/AuthContext.js';
-import { Navigate } from 'react-router-dom';
+import Auth from '../components/Auth/Auth';
+
+
 const isAuth = (Component) => {
 
     return function (props) {
@@ -7,7 +9,7 @@ const isAuth = (Component) => {
 
         return isAuthenticated
             ? <Component {...props} />
-            : <Navigate to='/' />;
+            : <Auth />;
     }
 }
 

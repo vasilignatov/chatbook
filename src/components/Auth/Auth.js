@@ -44,7 +44,7 @@ const Login = () => {
             accessToken: tokens.access.token,
             refreshToken: tokens.refresh.token
         });
-        navigate('/chat');
+        navigate('/');
     }
 
     return (

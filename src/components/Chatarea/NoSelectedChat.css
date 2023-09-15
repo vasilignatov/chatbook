@@ -1,11 +1,11 @@
-/* .chatarea_container_no-selected {
+.chatarea_container_no-selected {
     background-color: #F2F3F5;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+}
 
 .chatarea .chatarea_container_no-selected #no-selected-msg {
     font-weight: 700;

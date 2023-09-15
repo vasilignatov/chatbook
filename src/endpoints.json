@@ -1,6 +1,6 @@
 {
-    "login": "http://localhost:3000/auth/login",
-    "register": "http://localhost:3000/auth/register",
-    "logout": "http://localhost:3000/auth/logout",
-    "refresh-token": "http://localhost:3000/auth/refresh-token"
+    "login": "http://localhost:3100/auth/login",
+    "register": "http://localhost:3100/auth/register",
+    "logout": "http://localhost:3100/auth/logout",
+    "refresh-token": "http://localhost:3100/auth/refresh-token"
 }

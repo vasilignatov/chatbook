@@ -1,21 +1,10 @@
-import './Chatarea.css';
-import ProfileInfo from '../ProfileInfo/ProfileInfo';
-import { useSelectedChat } from '../../contexts/UserContext';
 import { useParams } from 'react-router-dom';
 
 const Chatarea = () => {
-    const { selectedUserId, setUserId } = useSelectedChat();
-    const userId = useParams();
-    setUserId(userId);
-
-    const noSelectesChatTemplate = (
-        <div className="chatarea_container_no-selected">
-            <h4 id="no-selected-msg">Select a chat or start a new conversation</h4>
-        </div>
-    )
-
+    const { userId } = useParams();
+    console.log(userId);
     return (
-        <>iva
+        <>
             <section className="chatarea">
                 <div className="chatarea_container">
                     <div className="chatarea__header">

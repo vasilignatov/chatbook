@@ -68,7 +68,7 @@ const Sidebar = () => {
                 }
 
 
-
+                
                 {
                     /* <div className="sidebar__history__cell noselect">
                     <div className="sidebar__history__cell__img_wp">
