@@ -62,7 +62,7 @@ const RegisterModal = ({ show, handleClose, handleShow }) => {
             accessToken: response.tokens.access.token,
             refreshToken: response.tokens.refresh.token
         });
-        navigate('/chat');
+        navigate('/');
     }
 
     return (
