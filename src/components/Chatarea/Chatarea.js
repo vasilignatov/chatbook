@@ -1,8 +1,35 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { getChatMessagesByRoomId } from '../../services/chatService';
+import ProfileInfo from '../ProfileInfo/ProfileInfo';
+
 const Chatarea = () => {
-    const { userId } = useParams();
-    console.log(userId);
+    const { roomId } = useParams();
+    const [isProfileVisible, setIsProfileVisible] = useState(false);
+    const [chatMessages, setChatMessages] = useState();
+
+    useEffect(() => {
+        const loadHistoryData = async () => {
+            const messages = await getChatMessagesByRoomId(roomId);
+            setChatMessages(messages);
+            console.log('Chat Messages: ',chatMessages);
+        }
+        loadHistoryData();
+    }, []);
+
+
+    function setisVisible() {
+        setIsProfileVisible(!isProfileVisible);
+    }
+
+    function sendMessage(e) {
+        if (e.key === "Enter") {
+            console.log(e.target);
+            e.target.value = '';
+        }
+    }
+
     return (
         <>
             <section className="chatarea">
@@ -25,7 +52,7 @@ const Chatarea = () => {
                                 <span className="circle">
                                     <i className="fa-solid fa-video" />
                                 </span>
-                                <span className="circle">
+                                <span className="circle" onClick={() => setisVisible()}>
                                     <i className="fa-solid fa-circle-info" />
                                 </span>
                             </div>
@@ -99,7 +126,12 @@ const Chatarea = () => {
                             </span>
                         </div>
                         <div className="useraction__input">
-                            <input className="input" type="text" placeholder="Aa" />
+                            <input
+                                className="input"
+                                type="text"
+                                placeholder="Aa"
+                                onKeyDown={sendMessage}
+                            />
                             <span className="cont-height">
                                 <i className="fa-solid fa-face-smile" />
                             </span>
@@ -112,8 +144,9 @@ const Chatarea = () => {
                     </div>
                 </div>
             </section>
-
-            {/* <ProfileInfo /> */}
+            {
+                isProfileVisible && <ProfileInfo />
+            }
         </>
     )
 }
