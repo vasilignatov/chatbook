@@ -2,5 +2,12 @@
     "login": "http://localhost:3100/auth/login",
     "register": "http://localhost:3100/auth/register",
     "logout": "http://localhost:3100/auth/logout",
-    "refresh-token": "http://localhost:3100/auth/refresh-token"
+    "refreshToken": "http://localhost:3100/auth/refresh-token",
+
+    "getUserById": "http://localhost:3100/users/",
+
+    "getRecent": "http://localhost:3100/chat",
+    "getChatByRoomId": "http://localhost:3100/chat/",
+    "initiate": "http://localhost:3100/chat/initiate",
+    "postMessage": "http://localhost:3100/chat/"
 }
