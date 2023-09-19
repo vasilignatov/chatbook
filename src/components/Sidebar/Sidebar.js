@@ -1,33 +1,21 @@
 import HistoryCard from './HistoryCard';
-
-const chatHistory = [
-    {
-        'userId': '1234aslkdflknj12123',
-        'name': 'Велислав Боянов',
-        'imageUrl': 'imgs/user_img.jpg',
-        'lastMessage': 'Какво правиш?',
-        'roomId': 1231231854987
-    },
-    {
-        'userId': '1j121234fasdff41546s',
-        'name': 'Nikolai Petkov',
-        'imageUrl': 'imgs/user_img.jpg',
-        'lastMessage': 'Как си?',
-        'roomId': 1231897987789
-    },
-    {
-        'userId': '12асдф4654654а6сд543',
-        'name': 'Strahil Stoqnov',
-        'imageUrl': 'imgs/user_img.jpg',
-        'lastMessage': 'Какво правиш?',
-        'roomId': 1223185498731
-    },
-]
+import { socket } from '../../socket';
+import { useEffect, useState } from 'react';
+import { getRecentChat } from '../../services/chatService';
 
 const Sidebar = () => {
 
-    return (
+    const [history, setHistory] = useState([]);
 
+    useEffect(() => {
+        const getData = async () => {
+            const data = await getRecentChat();
+            setHistory(data);
+        }
+        getData();
+    }, []);
+
+    return (
         <aside className="sidebar">
 
             <div className="sidebar__header">
@@ -62,24 +50,8 @@ const Sidebar = () => {
 
 
                 {
-                    chatHistory.map((x, i) => {
-                        return <HistoryCard key={x.userId} userData={x} />
-                    })
+                    history.map(x => <HistoryCard key={x.chatRoomId} userData={x} />)
                 }
-
-
-                
-                {
-                    /* <div className="sidebar__history__cell noselect">
-                    <div className="sidebar__history__cell__img_wp">
-                        <img src="imgs/user_img.jpg" alt="User image" />
-                    </div>
-                    <div className="sidebar__history__cell__wrapper">
-                        <p className="sidebar__history__cell__username">Велислав Боянов</p>
-                        <p className="sidebar__history__cell__message">Велислав Боянов</p>
-                    </div>
-                    </div> 
-                */}
 
             </div>
         </aside>
