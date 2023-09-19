@@ -28,18 +28,17 @@ export function getOptions(method = 'get', body) {
     };
     try {
         const user = JSON.parse(localStorage.getItem('user'));
-        console.log('user: ', user);
+        
         if (user) {
-            options.headers['Authorization'] = `Bearer ${user.acessToken}`;
+            options.headers['Authorization'] = `Bearer ${user.accessToken}`;
         }
         
         if (body) {
             options.headers['Content-Type'] = 'application/json';
             options.body = JSON.stringify(body);
         }
-
     } catch (error) {
-        
+        console.log(error);
     }
 
 
