@@ -3,15 +3,20 @@ import Sidebar from '../Sidebar/Sidebar.js';
 import isAuth from '../../hoc/isAuth';
 import { Outlet } from 'react-router-dom';
 
+import SelectedUserProvider from '../../contexts/SelectedUserContext';
+
 const Chat = () => {
     return (
         <>
             <Header />
-            <main>
-                <Sidebar />
+            
+            <SelectedUserProvider>
+                <main>
+                    <Sidebar />
 
-                <Outlet />
-            </main>
+                    <Outlet />
+                </main>
+            </SelectedUserProvider>
         </>
     )
 }
