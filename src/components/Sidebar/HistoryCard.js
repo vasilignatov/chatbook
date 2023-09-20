@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { useSelectedUser } from '../../contexts/SelectedUserContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { getUserById } from '../../services/userService';
 
 const HistoryCard = ({ userData }) => {
     const { user } = useAuth();
-    const [friend, setFriend] = useState();
+    const [ friend, setFriend ] = useState({});
     // const [lastMessage, setLastMessage] = useState();
-    
+
     useEffect(() => {
         async function fetchData() {
             const chatRoomFriendId = userData.roomInfo.userIds.filter(id => id != user.id)[0];
