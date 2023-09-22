@@ -9,8 +9,13 @@
     font-family: 'Klavika';
     src: url('../fonts/klavika-bold.otf');
 }
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../fonts/Segoe\ UI.woff');
+}
 
 :root {
+    --white: #ffffff;
     --wash: #E4E6EB;
     --blue: #0084ff;
     --green: #42b72a;
@@ -37,16 +42,92 @@ main {
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 10px 16px;
+    padding: 8px 16px;
     border-bottom: 1px solid var(--wash);
+    position: relative;
+}
+
+.header h1 {
+    margin: 0px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--light-blue);
+}
+
+.header__dropdown {
+    width: 360px;
+    height: 200px;
+    background-color: var(--white);
+    border-radius: 10px;
+
+    position: absolute;
+    top: 54px;
+    right: 16px;
+
+    -webkit-box-shadow: 0px 6px 30px -5px var(--cloud-grey);
+    -moz-box-shadow: 0px 6px 30px -5px var(--cloud-grey);
+    box-shadow: 0px 6px 30px -5px var(--cloud-grey);
+}
+
+.header__dropdown .header__dropdown__hd {
+    width: 328px;
+    border-radius: 8px;
+    margin: 12px auto;
+
+    -webkit-box-shadow: 0px 0px 30px -5px var(--cloud-grey);
+    -moz-box-shadow: 0px 0px 30px -5px var(--cloud-grey);
+    box-shadow: 0px 0px 30px -5px var(--cloud-grey);
+}
+
+.header__dropdown__hd-wp {
+    padding: 10px;
+    margin: 4px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px;
+    border-radius: 8px;
+}
+
+.hd_title {
+    width: 100%;
+}
+
+.header__dropdown__row {
+    margin: 8px;
+}
+
+.header__dropdown__row-wp  {
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.header__dropdown__row-wp:hover  {
+    background-color: #F2F3F5
+}
+
+.row__title {
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+    font-size: 15px;
+}
+/* dropdown icons */
+.fa-solid.fa-gear {
+    font-size: 1.4rem;
+}
+
+.exit{
+    height: 80%;
 }
 
 .nav_wrapper .header__logo {
     height: 24px;
 }
 
-.right {
-    display: flex;
+.fa-solid.fa-bell {
+    font-size: 1.4rem
 }
 
 .nav_wrapper {
