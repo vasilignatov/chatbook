@@ -1,6 +1,7 @@
 export async function request(url, options) {
     try {
         const response = await fetch(url, options);
+        console.log(response);
         if (response.ok === false) {
             const error = await response.json();
             // throw new Error(error.message);
@@ -10,6 +11,7 @@ export async function request(url, options) {
 
         try {
             const data = await response.json();
+            console.log('data ', data);
             return data;
         } catch (err) {
             return response;
@@ -28,7 +30,6 @@ export function getOptions(method = 'get', body) {
     };
     try {
         const user = JSON.parse(localStorage.getItem('user'));
-        
         if (user) {
             options.headers['Authorization'] = `Bearer ${user.accessToken}`;
         }

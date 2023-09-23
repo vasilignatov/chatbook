@@ -16,7 +16,7 @@ const NotFound = () => {
                         <span className="text-danger">Opps!</span> Page not found.
                     </p>
                     <p className="lead">The page you’re looking for doesn’t exist.</p>
-                    <Link to="/chat" className="btn btn-primary">
+                    <Link to="/" className="btn btn-primary">
                         Go Home
                     </Link>
                 </div>
