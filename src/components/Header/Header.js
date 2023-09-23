@@ -9,6 +9,7 @@ const Header = () => {
     function onClickDropdown() {
         return setIsVisible(!isVisible)
     }
+    
     return (
         <header className="header">
             <div className="nav_wrapper left">
