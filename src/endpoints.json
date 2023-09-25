@@ -5,6 +5,7 @@
     "refreshToken": "http://localhost:3100/auth/refresh-token",
 
     "getUserById": "http://localhost:3100/users/",
+    "getSuggestions": "http://localhost:3100/users/suggestions?search=",
 
     "getRecent": "http://localhost:3100/chat",
     "getChatByRoomId": "http://localhost:3100/chat/",
