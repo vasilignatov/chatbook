@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import * as authService from '../../services/authService';
+import { socket } from '../../socket';
 
-const HeaderDropdown = ({ }) => {
+const HeaderDropdown = () => {
     const { user, onLogout } = useAuth();
     const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ const HeaderDropdown = ({ }) => {
         if (response.logout) {
             return onLogout();
         }
-
+        socket.disconnect();
         onLogout();
         navigate('404');
     }
