@@ -1,22 +1,67 @@
-import { useState } from 'react'
+import './Header.css';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import { getSuggestions } from '../../services/userService';
 import HeaderDropdown from './HeaderDropdown';
+import HeaderSearch from './HeaderSearch';
+import useDebaunce from '../../hooks/useDebaunce';
+const debaunceTime = 2000;
 
 const Header = () => {
     const { user } = useAuth();
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisibleDropdown, setIsVisibleDropdown] = useState(false);
+
+    const [searchInput, setSearchInput] = useState(null);
+    const [suggestions, setSuggestion] = useState(null);
+    const [isVisibleSearch, setIsVisibleSearch] = useState(false);
+
+    const searchValue = useDebaunce(searchInput, 500);
+
+    useEffect(() => {
+        if (searchValue === '' || searchValue == null) {
+            setSuggestion(null);
+            setIsVisibleSearch(false);
+        } else {
+            getSuggestions(searchValue)
+            .then(data => {
+                setSuggestion(data);
+                setIsVisibleSearch(true);
+            });
+        }
+    }, [searchValue]);
+
+    function handleInputChange(ev) {
+        const value = ev.target.value.trim();
+        console.log(value);
+        if (value.length !== 0) {
+            setSearchInput(value);
+        } else {
+            setSearchInput('')
+            setIsVisibleSearch(false);
+            setSuggestion([]);
+        }
+    }
 
     function onClickDropdown() {
-        return setIsVisible(!isVisible)
+        return setIsVisibleDropdown(!isVisibleDropdown)
     }
-    
+
     return (
         <header className="header">
             <div className="nav_wrapper left">
                 <h1>chatbook</h1>
-                <span className="circle--big">
-                    <i className="fa-solid fa-magnifying-glass" />
-                </span>
+
+                <input
+                    type='text'
+                    className='input header__search'
+                    placeholder='  Търси приятели'
+                    onChange={handleInputChange}
+                />
+
+                {
+                    isVisibleSearch && <HeaderSearch suggestions={suggestions} isVisibleSearch={isVisibleSearch} />
+                }
+
             </div>
             <div className="nav_wrapper right">
                 <span className="circle--big">
@@ -35,11 +80,10 @@ const Header = () => {
                     />
                 </span>
             </div>
-            
-            {
-                isVisible && <HeaderDropdown  />
-            }
 
+            {
+                isVisibleDropdown && <HeaderDropdown />
+            }
         </header>
     )
 }
