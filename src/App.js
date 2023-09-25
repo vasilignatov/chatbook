@@ -34,10 +34,18 @@ function App() {
       setIsConnected(false);
     }
 
-    socket.on('connect', onConnect);
-    socket.on('disconnect', onDisconnect);
-
+    socket.on('connect', () => {
+      onConnect();
+      console.log('Client is connected ', socket.id);
+    });
+    
+    socket.on('disconnect', () => {
+      onDisconnect();
+      console.log('Client is disconnected ', socket.id);
+    });
+    
     return () => {
+      console.log('Client is disconnected ', socket.id);
       socket.off('connect', onConnect);
       socket.off('disconnect', onDisconnect);
     }
