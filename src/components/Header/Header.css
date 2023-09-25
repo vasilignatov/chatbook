@@ -1,0 +1,30 @@
+.header__search {
+    position: relative;
+}
+
+.searchContainer {
+    display: none;
+    width: 360px;
+    background-color: var(--white);
+    border-radius: 10px;
+
+    position: absolute;
+    top: 54px;
+    left: 21px;
+
+    -webkit-box-shadow: 0px 6px 30px -5px var(--cloud-grey);
+    -moz-box-shadow: 0px 6px 30px -5px var(--cloud-grey);
+    box-shadow: 0px 6px 30px -5px var(--cloud-grey);
+}
+
+.header__dropdown__hd-wp:last-child {
+    overflow: hidden;
+}
+
+.no-results { 
+    text-align: center;
+}
+
+.visible {
+    display: block;
+}
