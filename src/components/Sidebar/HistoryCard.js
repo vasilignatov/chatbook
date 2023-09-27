@@ -7,7 +7,7 @@ import { getUserById } from '../../services/userService';
 
 const HistoryCard = ({ userData }) => {
     const { user } = useAuth();
-    const [ friend, setFriend ] = useState({});
+    const [friend, setFriend] = useState({});
     // const [lastMessage, setLastMessage] = useState();
 
     useEffect(() => {
@@ -18,11 +18,7 @@ const HistoryCard = ({ userData }) => {
         }
         fetchData();
     }, []);
-
-    // useEffect(() => {
-    //     setLastMessage(userData.text);
-    // }, []);
-
+    console.log(friend);
     return (
         <NavLink
             to={`messages/${userData.chatRoomId}`}
@@ -34,11 +30,7 @@ const HistoryCard = ({ userData }) => {
         >
             <div className="sidebar__history__cell__img_wp">
                 <img
-                    src={
-                        userData.imageUrl
-                            ? userData.imageUrl
-                            : 'https://ik.imagekit.io/8brpz6ecl/vasilignatov_dev/103099075_3542232225804330_8428963615716529751_n.jpg?updatedAt=1687241036377'
-                    }
+                    src={friend.imageUrl}
                     alt="User image" />
             </div>
 

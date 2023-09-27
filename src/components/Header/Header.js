@@ -70,12 +70,7 @@ const Header = () => {
                 <span className="circle--big" onClick={onClickDropdown}>
                     <img
                         className="circle__img"
-                        // TODO
-                        src={
-                            user.imageUrl
-                                ? user.imageUrl
-                                : "https://ik.imagekit.io/8brpz6ecl/vasilignatov_dev/IMG_0631.JPG?updatedAt=1687415333369"
-                        }
+                        src={user.imageUrl}
                         alt="profile image"
                     />
                 </span>
@@ -84,6 +79,7 @@ const Header = () => {
             {
                 isVisibleDropdown && <HeaderDropdown />
             }
+
         </header>
     )
 }

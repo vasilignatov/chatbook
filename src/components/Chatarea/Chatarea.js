@@ -18,8 +18,7 @@ const Chatarea = () => {
     const { selectedUser, setSelectedUser } = useSelectedUser();
 
     const [isProfileVisible, setIsProfileVisible] = useState(false);
-    const [roomData, setRoomData] = useState();
-
+    const [roomData, setRoomData] = useState();    
 
     useEffect(() => {
         const loadHistoryData = async () => {
