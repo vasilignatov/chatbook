@@ -20,6 +20,9 @@
 .header__dropdown__hd-wp:last-child {
     overflow: hidden;
 }
+.header__dropdown__hd-wp:hover {
+    background-color: #F2F3F5;
+}
 
 .no-results { 
     text-align: center;
