@@ -10,5 +10,7 @@
     "getRecent": "http://localhost:3100/chat",
     "getChatByRoomId": "http://localhost:3100/chat/",
     "initiate": "http://localhost:3100/chat/initiate",
-    "postMessage": "http://localhost:3100/chat/"
+    "postMessage": "http://localhost:3100/chat/",
+
+    "uploadImg": "https://upload.imagekit.io/api/v1/files/upload"
 }
