@@ -20,14 +20,24 @@
 .header__dropdown__hd-wp:last-child {
     overflow: hidden;
 }
+
 .header__dropdown__hd-wp:hover {
     background-color: #F2F3F5;
 }
 
-.no-results { 
+.no-results {
     text-align: center;
 }
 
 .visible {
     display: block;
+}
+
+.user-photo-container {
+    width: 100px;
+    height: 100px;
+}
+
+.user-photo-container img {
+    width: 100%;
 }
