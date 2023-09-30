@@ -4,7 +4,6 @@ function useDebaunce(value, delay = 500) {
     const [debauncedValue, setDebauncedValue] = useState();
 
     useEffect(() => {
-        console.log('hook value: ', value);
         if (value !== '') {
             const id = setTimeout(() => {
                 setDebauncedValue(value);

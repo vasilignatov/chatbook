@@ -3,33 +3,46 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState, useEffect } from 'react';
-import { uploadProfilePicture } from '../../services/userService';
+import * as userService from '../../services/userService';
+import * as authService from '../../services/authService';
+
+
 function SettingsModal({ show, handleClose }) {
 
     const { user } = useAuth();
-    const [imgFile, setImgFile] = useState(user.imageUrl);
+    const [imgFile, setImgFile] = useState(null);
     const [userImgUrl, setUserImgUrl] = useState(user.imageUrl);
 
-    // useEffect(() => {
-    //     (async () => {
-    //         const req = await uploadProfilePicture();
-    //     })();
-    // }, [userImgUrl]);
+    useEffect(() => {
+        (async () => {
+            if (userImgUrl !== user.imageUrl) {
+                // get auth token from server
+                const imageKitAuthData = await authService.getImageKitAuthData();
+                // upload photo to ImageKit setver
+                // const imageKitResponse =await userService.uploadProfilePicture(imgFile, imageKitAuthData);
 
-    function onSubmit(ev) {
+                // setUserImgUrl(imageKitResponse.url);
+            }
+        })();
+    }, [imgFile]);
+
+    async function onSubmit(ev) {
         ev.preventDefault();
         const formData = Object.fromEntries(new FormData(ev.target));
 
-        console.log(Object.keys(formData));  
-        if(formData.imageUrl.name == '') {
+        if (formData.imageUrl.name == '') {
             delete formData.imageUrl;
-            console.log(Object.keys(formData));  
+            await userService.updateUserInfo(formData);
+        } else {
+            formData.imageUrl = userImgUrl;
+            await userService.updateUserInfo(formData);
         }
     }
 
     function handleImageChange(ev) {
-        console.log(ev.target);
+        setImgFile(ev.target.files[0]);
     }
+
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -80,7 +93,7 @@ function SettingsModal({ show, handleClose }) {
                 </Form>
 
                 <div className="user-photo-container">
-                    <img src={user.imageUrl} />
+                    <img src={userImgUrl} />
                 </div>
 
             </Modal.Body>
