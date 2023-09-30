@@ -3,8 +3,10 @@
     "register": "http://localhost:3100/auth/register",
     "logout": "http://localhost:3100/auth/logout",
     "refreshToken": "http://localhost:3100/auth/refresh-token",
+    "imageKitToken": "http://localhost:3100/auth/imagekit-token",
 
     "getUserById": "http://localhost:3100/users/",
+    "updateUserById": "http://localhost:3100/users/",
     "getSuggestions": "http://localhost:3100/users/suggestions?search=",
 
     "getRecent": "http://localhost:3100/chat",
