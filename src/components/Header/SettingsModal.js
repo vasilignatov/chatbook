@@ -2,45 +2,35 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { useAuth } from '../../contexts/AuthContext';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import * as userService from '../../services/userService';
-import * as authService from '../../services/authService';
-
+import { convertBase64 } from '../../services/utils.js';
 
 function SettingsModal({ show, handleClose }) {
 
-    const { user } = useAuth();
-    const [imgFile, setImgFile] = useState(null);
+    const { user, onLogin } = useAuth();
     const [userImgUrl, setUserImgUrl] = useState(user.imageUrl);
-
-    useEffect(() => {
-        (async () => {
-            if (userImgUrl !== user.imageUrl) {
-                // get auth token from server
-                const imageKitAuthData = await authService.getImageKitAuthData();
-                // upload photo to ImageKit setver
-                // const imageKitResponse =await userService.uploadProfilePicture(imgFile, imageKitAuthData);
-
-                // setUserImgUrl(imageKitResponse.url);
-            }
-        })();
-    }, [imgFile]);
 
     async function onSubmit(ev) {
         ev.preventDefault();
         const formData = Object.fromEntries(new FormData(ev.target));
 
-        if (formData.imageUrl.name == '') {
+        if (formData.imageUrl.name === '') {
             delete formData.imageUrl;
-            await userService.updateUserInfo(formData);
-        } else {
-            formData.imageUrl = userImgUrl;
-            await userService.updateUserInfo(formData);
         }
+        const covertedImage = await convertBase64(formData.imageUrl);
+
+        formData.imageName = formData.imageUrl.name;
+        formData.imageUrl = covertedImage;
+
+        const updatedUser = await userService.updateUserInfo(user.id, formData);
+        console.log(updatedUser);
+        onLogin(updatedUser);
+        handleClose();
     }
 
     function handleImageChange(ev) {
-        setImgFile(ev.target.files[0]);
+        setUserImgUrl(URL.createObjectURL(ev.target.files[0]));
     }
 
     return (
