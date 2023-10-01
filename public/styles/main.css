@@ -254,15 +254,20 @@ div.sidebar__history {
     margin-right: 8px;
 }
 
-.sidebar__history__cell img {
+/* .sidebar__history__cell img {
     width: 100%;
-}
+} */
 
 .sidebar__history__cell__img_wp {
     max-width: 56px;
     max-height: 56px;
     border-radius: 28px;
     overflow: hidden;
+}
+.sidebar__history__cell__img_wp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .sidebar__history__cell__wrapper {
@@ -339,9 +344,16 @@ a.active {
     padding: 0;
 }
 
-.user-img-wp img {
+.user-img-wp {
     width: 40px;
+    height: 40px;
     border-radius: 20px;
+    overflow: hidden;
+}
+.user-img-wp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .chatarea__header__icons .icons_wp {
@@ -506,6 +518,12 @@ a.active {
     width: 80px;
     height: 80px;
     border-radius: 40px;
+}
+
+.profile_info__header__img_wp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .profile_info__icons_wp {
