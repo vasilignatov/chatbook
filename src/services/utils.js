@@ -31,7 +31,7 @@ export function getOptions(method = 'get', body) {
         if (user) {
             options.headers['Authorization'] = `Bearer ${user.accessToken}`;
         }
-        
+
         if (body) {
             options.headers['Content-Type'] = 'application/json';
             options.body = JSON.stringify(body);
@@ -42,4 +42,19 @@ export function getOptions(method = 'get', body) {
 
 
     return options;
+}
+
+export function convertBase64(file) {
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+
+        fileReader.onload = () => {
+            resolve(fileReader.result);
+        };
+
+        fileReader.onerror = (error) => {
+            reject(error);
+        };
+    });
 }
