@@ -5,7 +5,7 @@ import { getSuggestions } from '../../services/userService';
 import HeaderDropdown from './HeaderDropdown';
 import HeaderSearch from './HeaderSearch';
 import useDebaunce from '../../hooks/useDebaunce';
-const debaunceTime = 2000;
+const debaunceTime = 1000;
 
 const Header = () => {
     const { user } = useAuth();
@@ -15,7 +15,7 @@ const Header = () => {
     const [suggestions, setSuggestion] = useState(null);
     const [isVisibleSearch, setIsVisibleSearch] = useState(false);
 
-    const searchValue = useDebaunce(searchInput, 500);
+    const searchValue = useDebaunce(searchInput, debaunceTime);
 
     useEffect(() => {
         if (searchValue === '' || searchValue == null) {
@@ -32,7 +32,7 @@ const Header = () => {
 
     function handleInputChange(ev) {
         const value = ev.target.value.trim();
-        console.log(value);
+        
         if (value.length !== 0) {
             setSearchInput(value);
         } else {
