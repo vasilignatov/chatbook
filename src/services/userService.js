@@ -10,17 +10,7 @@ export async function getSuggestions(string) {
 }
 
 export async function updateUserInfo(userId, userData) {
-    return await request(endpoints.updateUserById + userId, getOptions('POST', userData));
+    return await request(endpoints.updateUserById + userId, getOptions('PUT', userData));
 }
 
-export async function uploadProfilePicture(fileData, imageKitData) {
-    return await request(endpoints.uploadImg, getOptions('POST', {
-        file: fileData,
-        publicKey: "public_BrrOwcySJsmMwiYPn7AABrM8mW8=",
-        signature: imageKitData.signature,
-        expire: imageKitData.expire,
-        token: imageKitData.token,
-        fileName: fileData.name
-    }));
-}
 
