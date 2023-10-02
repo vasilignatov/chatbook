@@ -24,7 +24,6 @@ function SettingsModal({ show, handleClose }) {
         formData.imageUrl = covertedImage;
 
         const updatedUser = await userService.updateUserInfo(user.id, formData);
-        console.log(updatedUser);
         onLogin(updatedUser);
         handleClose();
     }
@@ -42,7 +41,7 @@ function SettingsModal({ show, handleClose }) {
                 <Form onSubmit={onSubmit} id="profileSettings">
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Имейл </Form.Label>
+                        <Form.Label>Имейл</Form.Label>
                         <Form.Control
                             defaultValue={user.email}
                             name="email"

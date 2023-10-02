@@ -1,16 +1,24 @@
-const HeaderSearch = ({ suggestions, isVisibleSearch }) => {
-    const mapped = suggestions.map(user => {
-        return (<div key={user._id} className="header__dropdown__hd-wp ">
-            <div className="hd_image">
-                <span className="circle">
-                    <img
-                        className="circle__img"
-                        src={user.imageUrl}
-                    />
-                </span>
+
+const HeaderSearch = ({ suggestions, isVisibleSearch, onClickSuggestion }) => {
+
+    const mappedSuggestions = suggestions.map(user => {
+        return (
+            <div
+                key={user._id}
+                className="header__dropdown__hd-wp noselect"
+                onClick={(ev) => onClickSuggestion(ev, user._id)}
+            >
+                <div className="hd_image">
+                    <span className="circle">
+                        <img
+                            className="circle__img"
+                            src={user.imageUrl}
+                        />
+                    </span>
+                </div>
+                <div className="hd_title">{user.fullName}</div>
             </div>
-            <div className="hd_title">{user.fullName}</div>
-        </div>)
+        )
     });
 
     return (
@@ -20,7 +28,7 @@ const HeaderSearch = ({ suggestions, isVisibleSearch }) => {
                 suggestions !== null
                     ? suggestions.length == 0
                         ? <p className="no-results">No results!</p>
-                        : mapped
+                        : mappedSuggestions
                     : null
             }
 
