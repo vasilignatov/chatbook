@@ -23,6 +23,7 @@
 
 .header__dropdown__hd-wp:hover {
     background-color: #F2F3F5;
+    cursor: pointer;
 }
 
 .no-results {

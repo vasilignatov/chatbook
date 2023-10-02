@@ -36,6 +36,7 @@ const Login = () => {
         setErrorMsg('');
 
         const { user, tokens } = await login(email, password);
+        
         onLogin({
             id: user.id,
             email: user.email,
@@ -45,6 +46,7 @@ const Login = () => {
             accessToken: tokens.access.token,
             refreshToken: tokens.refresh.token
         });
+        
         navigate('/');
     }
 
