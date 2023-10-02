@@ -6,6 +6,7 @@ import NotFound from './components/NotFound/NotFound';
 import Chatarea from './components/Chatarea/Chatarea.js';
 import NoSelectedChat from './components/Chatarea/NoSelectedChat/NoSelectedChat';
 import { socket } from './socket.js';
+import { useAuth } from './contexts/AuthContext.js';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,11 +22,11 @@ const router = createBrowserRouter(
 )
 
 function App() {
-
+  const { isAuthenticated, user } = useAuth();
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-
+    
     function onConnect() {
       setIsConnected(true);
     }
@@ -38,12 +39,12 @@ function App() {
       onConnect();
       console.log('Client is connected ', socket.id);
     });
-    
+
     socket.on('disconnect', () => {
       onDisconnect();
       console.log('Client is disconnected ', socket.id);
     });
-    
+
     return () => {
       console.log('Client is disconnected ', socket.id);
       socket.off('connect', onConnect);
@@ -52,6 +53,12 @@ function App() {
 
   }, []);
 
+  useEffect(()=> {
+    if(isAuthenticated) {
+      console.log(user.id);
+      socket.emit('identity',user.id);
+    } 
+  }, [isAuthenticated]);
   return (
     <>
       <RouterProvider router={router} />
