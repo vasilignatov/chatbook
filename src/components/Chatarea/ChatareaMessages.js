@@ -1,6 +1,4 @@
-import { logDOM } from '@testing-library/react';
 import { useAuth } from '../../contexts/AuthContext';
-import { useSelectedUser } from '../../contexts/SelectedUserContext';
 
 const messageTemplate = (msg, type) => (
     <div className={`message_row ${type}`} key={msg._id}>
@@ -11,6 +9,7 @@ const messageTemplate = (msg, type) => (
 const ChatareaMessages = ({ roomData }) => {
 
     const { user } = useAuth();
+
     return (
         <div className="chatarea__messages">
             <div className="chatarea__messages__wrapper">
@@ -19,9 +18,8 @@ const ChatareaMessages = ({ roomData }) => {
                     roomData?.chatMessages.map(msg => {
                         if (msg.postedByUserId._id == user.id) {
                             return messageTemplate(msg, 'user');
-                        } else {
-                            return messageTemplate(msg, 'fr');
                         }
+                        return messageTemplate(msg, 'fr');
                     })
                 }
 
