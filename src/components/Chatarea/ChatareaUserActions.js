@@ -1,17 +1,19 @@
+import { use } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
 import { socket } from '../../socket';
-import { postMessage } from '../../services/chatService';
 
-const ChatareaUserActions = ({ dispatch, roomId }) => {
+const ChatareaUserActions = ({ setChatMessages, roomId }) => {
+
+    const { user } = useAuth();
 
     async function sendMessage(e) {
         if (e.key === "Enter") {
             const text = e.target.value.trim();
-
-            const message = await postMessage(roomId, {text});
-
-            console.log('Message: ', message);
-            dispatch({ type: 'add_message', payload: message });
             e.target.value = '';
+
+            const message = { roomId, senderId: user.id, text };
+            socket.emit('send_message', message);
+            console.log('message is send');
         }
     }
 

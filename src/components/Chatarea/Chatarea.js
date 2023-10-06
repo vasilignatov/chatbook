@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getChatMessagesByRoomId } from '../../services/chatService';
@@ -8,49 +8,50 @@ import ChatareaHeader from './ChatareaHeader';
 import ChatareaMessages from './ChatareaMessages';
 import ChatareaUserActions from './ChatareaUserActions';
 import ProfileInfo from '../ProfileInfo/ProfileInfo';
-import { useSelectedUser } from '../../contexts/SelectedUserContext';
 import { useAuth } from '../../contexts/AuthContext';
-
-const initalState = {
-    chatMessages: [],
-    users: []
-}
-
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'get_messages': {
-            state = action.payload;
-            return state;
-        }
-        case 'add_message':
-            state.chatMessages = [...state.chatMessages, action.payload];
-            return state; 
-        default:
-            return state;
-    }
-}
+import { socket } from '../../socket';
 
 const Chatarea = () => {
     const { roomId } = useParams();
-
     const { user } = useAuth();
-
-    const { selectedUser, setSelectedUser } = useSelectedUser();
+    
     const [isProfileVisible, setIsProfileVisible] = useState(false);
-    const [roomData, setRoomData] = useState();
-
-    const [state, dispatch] = useReducer(reducer, initalState);
+    
+    const [selectedUser, setSelectedUser] = useState({});
+    const [chatMessages, setChatMessages] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         (async () => {
             const room = await getChatMessagesByRoomId(roomId);
+
             const chatRoomFriendId = room.users.filter(u => u._id != user.id)[0]._id;
             const friendInfo = await getUserById(chatRoomFriendId);
             setSelectedUser(friendInfo);
-            dispatch({type: 'get_messages', payload: room});
-            console.log(state);
+            
+            setUsers(room.users);
+            setChatMessages(room.chatMessages);
+
+            socket.emit('join_room', roomId, friendInfo.id);
+
         })();
+        return () => {
+            socket.emit('leave_room', roomId);
+        }
     }, [roomId]);
+
+    useEffect(() => {
+        const recieveMessageListener = (message) => {
+            console.log('Message recieved', message);
+            setChatMessages([...chatMessages, message]);
+        }
+
+        socket.on('receive_message', recieveMessageListener);
+
+        return () => {
+            socket.off('receive_message', recieveMessageListener);
+        }
+    }, [chatMessages]);
 
     function setIsVisible() {
         setIsProfileVisible(!isProfileVisible);
@@ -60,13 +61,14 @@ const Chatarea = () => {
         <>
             <section className="chatarea">
                 <div className="chatarea_container">
-                    <ChatareaHeader setIsVisible={setIsVisible} />
-                    <ChatareaMessages roomData={state} />
-                    <ChatareaUserActions dispatch={dispatch} roomId={roomId}/>
+                    <ChatareaHeader setIsVisible={setIsVisible} selectedUser={selectedUser} />
+                    <ChatareaMessages roomData={{  chatMessages, users  }} />
+                    <ChatareaUserActions roomId={roomId} setChatMessages={setChatMessages} />
                 </div>
             </section>
+
             {
-                isProfileVisible && <ProfileInfo />
+                isProfileVisible && <ProfileInfo selectedUser={selectedUser}/>
             }
         </>
     )

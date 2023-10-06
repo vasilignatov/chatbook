@@ -18,7 +18,7 @@ const HistoryCard = ({ userData }) => {
         }
         fetchData();
     }, []);
-    console.log(friend);
+    
     return (
         <NavLink
             to={`messages/${userData.chatRoomId}`}

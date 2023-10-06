@@ -7,8 +7,8 @@ const messageTemplate = (msg, type) => (
 );
 
 const ChatareaMessages = ({ roomData }) => {
-
     const { user } = useAuth();
+    console.log(roomData);
 
     return (
         <div className="chatarea__messages">

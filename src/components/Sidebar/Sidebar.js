@@ -47,8 +47,7 @@ const Sidebar = () => {
 
             {/* HISTORY CONTAINER */}
             <div className="sidebar__history">
-
-
+            
                 {
                     history.map(x => <HistoryCard key={x.chatRoomId} userData={x} />)
                 }

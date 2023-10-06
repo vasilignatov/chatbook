@@ -1,9 +1,4 @@
-import { useSelectedUser } from '../../contexts/SelectedUserContext';
-
-const ProfileInfo = () => {
-
-  const { selectedUser } = useSelectedUser();
-
+const ProfileInfo = ({ selectedUser }) => {
   return (
     <section className="profile_info">
       <div className="profile_info__header">

@@ -14,17 +14,24 @@ function SettingsModal({ show, handleClose }) {
     async function onSubmit(ev) {
         ev.preventDefault();
         const formData = Object.fromEntries(new FormData(ev.target));
+        const { firstName, lastName, imageUrl } = formData;
 
-        if (formData.imageUrl.name === '') {
+        if (firstName == user.firstName && lastName == user.lastName && formData.imageUrl.name === '') {
+            return handleClose();
+        } else if (formData.imageUrl.name === '') {
             delete formData.imageUrl;
+        } else {
+            const covertedImage = await convertBase64(formData.imageUrl);
+            console.log(formData);
+            formData.imageName = formData.imageUrl.name;
+            formData.imageUrl = covertedImage;
         }
-        const covertedImage = await convertBase64(formData.imageUrl);
-
-        formData.imageName = formData.imageUrl.name;
-        formData.imageUrl = covertedImage;
 
         const updatedUser = await userService.updateUserInfo(user.id, formData);
+        // change User info
+            console.log(user);
         onLogin(updatedUser);
+
         handleClose();
     }
 
@@ -40,15 +47,6 @@ function SettingsModal({ show, handleClose }) {
             <Modal.Body>
                 <Form onSubmit={onSubmit} id="profileSettings">
 
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Имейл</Form.Label>
-                        <Form.Control
-                            defaultValue={user.email}
-                            name="email"
-                            type="email"
-                            autoFocus
-                        />
-                    </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                         <Form.Label>Име</Form.Label>
                         <Form.Control

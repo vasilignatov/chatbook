@@ -1,18 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useSelectedUser } from '../../contexts/SelectedUserContext';
 
-const ChatareaHeader = ({ setIsVisible }) => {
-    
-    const { selectedUser, setSelectedUser } = useSelectedUser();
-
+const ChatareaHeader = ({ setIsVisible, selectedUser }) => {
     return (
         <div className="chatarea__header">
             <div className="chatarea__header__user">
                 <div className="user-img-wp">
-                    <img src={selectedUser.imageUrl} alt="User img" />
+                    <img src={selectedUser?.imageUrl} alt="User img" />
                 </div>
                 <div className="user-info">
-                    <h3>{selectedUser.firstName + ' ' + selectedUser.lastName}</h3>
+                    <h3>{selectedUser?.firstName + ' ' + selectedUser?.lastName}</h3>
                     <p>На линия в момента</p>
                 </div>
             </div>

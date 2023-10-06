@@ -25,8 +25,7 @@ function App() {
   const { isAuthenticated, user } = useAuth();
   const [isConnected, setIsConnected] = useState(false);
 
-  useEffect(() => {
-    
+  useEffect(() => { 
     function onConnect() {
       setIsConnected(true);
     }
@@ -49,13 +48,12 @@ function App() {
       console.log('Client is disconnected ', socket.id);
       socket.off('connect', onConnect);
       socket.off('disconnect', onDisconnect);
+      socket.disconnect();
     }
-
   }, []);
 
   useEffect(()=> {
-    if(isAuthenticated) {
-      console.log(user.id);
+    if(isAuthenticated) {;
       socket.emit('identity',user.id);
     } 
   }, [isAuthenticated]);
