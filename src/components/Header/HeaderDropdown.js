@@ -9,14 +9,14 @@ import { socket } from '../../socket';
 const HeaderDropdown = () => {
 
     const [show, setShow] = useState(false);
-    const { user, onLogout } = useAuth();
+    const { user, tokens, onLogout } = useAuth();
     const navigate = useNavigate();
 
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
 
     async function logout() {
-        const response = await authService.logout({ refreshToken: user.refreshToken });
+        const response = await authService.logout({ refreshToken: tokens.refreshToken });
         console.log(response);
 
         if (response.logout) {
