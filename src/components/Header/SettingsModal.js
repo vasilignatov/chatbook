@@ -8,7 +8,7 @@ import { convertBase64 } from '../../services/utils.js';
 
 function SettingsModal({ show, handleClose }) {
 
-    const { user, onLogin } = useAuth();
+    const { user, onUpdateUser } = useAuth();
     const [userImgUrl, setUserImgUrl] = useState(user.imageUrl);
 
     async function onSubmit(ev) {
@@ -27,11 +27,9 @@ function SettingsModal({ show, handleClose }) {
             formData.imageUrl = covertedImage;
         }
 
-        const updatedUser = await userService.updateUserInfo(user.id, formData);
+        const updatedUser = await userService.updateUserInfo(user._id, formData);
         // change User info
-            console.log(user);
-        onLogin(updatedUser);
-
+        onUpdateUser(updatedUser);
         handleClose();
     }
 
