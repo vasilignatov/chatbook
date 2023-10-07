@@ -12,7 +12,7 @@ const HistoryCard = ({ userData }) => {
 
     useEffect(() => {
         async function fetchData() {
-            const chatRoomFriendId = userData.roomInfo.userIds.filter(id => id != user.id)[0];
+            const chatRoomFriendId = userData.roomInfo.userIds.filter(id => id != user._id)[0];
             const friendInfo = await getUserById(chatRoomFriendId);
             setFriend(friendInfo);
         }

@@ -54,7 +54,7 @@ function App() {
 
   useEffect(()=> {
     if(isAuthenticated) {;
-      socket.emit('identity',user.id);
+      socket.emit('identity',user._id);
     } 
   }, [isAuthenticated]);
   return (

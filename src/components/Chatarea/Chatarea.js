@@ -24,8 +24,7 @@ const Chatarea = () => {
     useEffect(() => {
         (async () => {
             const room = await getChatMessagesByRoomId(roomId);
-
-            const chatRoomFriendId = room.users.filter(u => u._id != user.id)[0]._id;
+            const chatRoomFriendId = room.users.filter(u => u._id != user._id)[0]._id;
             const friendInfo = await getUserById(chatRoomFriendId);
             setSelectedUser(friendInfo);
             
@@ -33,7 +32,6 @@ const Chatarea = () => {
             setChatMessages(room.chatMessages);
 
             socket.emit('join_room', roomId, friendInfo.id);
-
         })();
         return () => {
             socket.emit('leave_room', roomId);

@@ -8,15 +8,14 @@ const messageTemplate = (msg, type) => (
 
 const ChatareaMessages = ({ roomData }) => {
     const { user } = useAuth();
-    console.log(roomData);
 
     return (
         <div className="chatarea__messages">
             <div className="chatarea__messages__wrapper">
 
                 {
-                    roomData?.chatMessages.map(msg => {
-                        if (msg.postedByUserId._id == user.id) {
+                    roomData.chatMessages.map(msg => {
+                        if (msg.postedByUserId._id == user._id) {
                             return messageTemplate(msg, 'user');
                         }
                         return messageTemplate(msg, 'fr');

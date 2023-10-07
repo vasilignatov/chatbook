@@ -11,7 +11,7 @@ const ChatareaUserActions = ({ setChatMessages, roomId }) => {
             const text = e.target.value.trim();
             e.target.value = '';
 
-            const message = { roomId, senderId: user.id, text };
+            const message = { roomId, senderId: user._id, text };
             socket.emit('send_message', message);
             console.log('message is send');
         }
