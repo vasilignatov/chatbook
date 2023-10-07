@@ -54,14 +54,8 @@ const RegisterModal = ({ show, handleClose, handleShow }) => {
             setErrorMsg(response.message);
             return;
         }
-        onLogin({
-            id: response.user.id,
-            email: response.user.email,
-            firstName: response.user.firstName,
-            lastName: response.user.lastName,
-            accessToken: response.tokens.access.token,
-            refreshToken: response.tokens.refresh.token
-        });
+        
+        onLogin(response);
         navigate('/');
     }
 
