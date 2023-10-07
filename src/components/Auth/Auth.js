@@ -13,8 +13,8 @@ const Login = () => {
     const [errorMsg, setErrorMsg] = useState('');
     const { onLogin } = useAuth();
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleCloseModal = () => setShow(false);
+    const handleShowModal = () => setShow(true);
 
     async function onSubmitLogin(ev) {
         ev.preventDefault();
@@ -36,16 +36,8 @@ const Login = () => {
         setErrorMsg('');
 
         const { user, tokens } = await login(email, password);
-        
-        onLogin({
-            id: user.id,
-            email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            imageUrl: user.imageUrl,
-            accessToken: tokens.access.token,
-            refreshToken: tokens.refresh.token
-        });
+        console.log({user, tokens});
+        onLogin({ user, tokens });
         
         navigate('/');
     }
@@ -70,12 +62,12 @@ const Login = () => {
                         </form>
                         <a href="#" className="forgoten-pass">Забравена парола?</a>
                         <hr />
-                        <button className="btn newProfile" onClick={handleShow} >Създаване на нов профил</button>
+                        <button className="btn newProfile" onClick={handleShowModal} >Създаване на нов профил</button>
                     </div>
                 </div>
             </div>
             {
-                show && <RegisterModal handleShow={handleShow} handleClose={handleClose} show={show} />
+                show && <RegisterModal handleShow={handleShowModal} handleClose={handleCloseModal} show={show} />
             }
         </>
     )
