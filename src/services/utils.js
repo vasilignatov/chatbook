@@ -20,16 +20,16 @@ export async function request(url, options) {
     }
 }
 
-
 export function getOptions(method = 'get', body) {
     const options = {
         method,
         headers: {}
     };
     try {
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user) {
-            options.headers['Authorization'] = `Bearer ${user.accessToken}`;
+        const tokens = JSON.parse(localStorage.getItem('tokens'));
+
+        if (tokens) {
+            options.headers['Authorization'] = `Bearer ${tokens.accessToken}`;
         }
 
         if (body) {
