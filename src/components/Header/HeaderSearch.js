@@ -1,6 +1,6 @@
 
 const HeaderSearch = ({ suggestions, isVisibleSearch, onClickSuggestion }) => {
-
+     
     const mappedSuggestions = suggestions.map(user => {
         return (
             <div
