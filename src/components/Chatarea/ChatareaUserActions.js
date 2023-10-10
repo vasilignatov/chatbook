@@ -1,19 +1,28 @@
-import { use } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { socket } from '../../socket';
 
-const ChatareaUserActions = ({ setChatMessages, roomId }) => {
+const ChatareaUserActions = ({ roomId }) => {
 
+    const [isTyping, setIsTyping] = useState();
     const { user } = useAuth();
 
     async function sendMessage(e) {
+        const input = e.target;
         if (e.key === "Enter") {
-            const text = e.target.value.trim();
-            e.target.value = '';
+            const text = input.value.trim();
+            input.value = '';
 
             const message = { roomId, senderId: user._id, text };
+            setIsTyping(false);
+            socket.emit('user_typing', roomId, false);
             socket.emit('send_message', message);
-            console.log('message is send');
+        } else if (!isTyping && input.value !== '') {
+            setIsTyping(true);
+            socket.emit('user_typing', roomId, true);
+        } else if (isTyping && input.value == '') {
+            setIsTyping(false);
+            socket.emit('user_typing', roomId, false);
         }
     }
 
