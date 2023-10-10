@@ -14,9 +14,10 @@ import { socket } from '../../socket';
 const Chatarea = () => {
     const { roomId } = useParams();
     const { user } = useAuth();
-    
+
     const [isProfileVisible, setIsProfileVisible] = useState(false);
-    
+    const [isTyping, setIsTyping] = useState();
+
     const [selectedUser, setSelectedUser] = useState({});
     const [chatMessages, setChatMessages] = useState([]);
     const [users, setUsers] = useState([]);
@@ -27,7 +28,7 @@ const Chatarea = () => {
             const chatRoomFriendId = room.users.filter(u => u._id != user._id)[0]._id;
             const friendInfo = await getUserById(chatRoomFriendId);
             setSelectedUser(friendInfo);
-            
+
             setUsers(room.users);
             setChatMessages(room.chatMessages);
 
@@ -55,18 +56,20 @@ const Chatarea = () => {
         setIsProfileVisible(!isProfileVisible);
     }
 
+
+
     return (
         <>
             <section className="chatarea">
                 <div className="chatarea_container">
                     <ChatareaHeader setIsVisible={setIsVisible} selectedUser={selectedUser} />
-                    <ChatareaMessages roomData={{  chatMessages, users  }} />
-                    <ChatareaUserActions roomId={roomId} setChatMessages={setChatMessages} />
+                    <ChatareaMessages roomData={{ chatMessages, users, isTyping, roomId }} />
+                    <ChatareaUserActions roomId={roomId} setIsTyping={setIsTyping} />
                 </div>
             </section>
 
             {
-                isProfileVisible && <ProfileInfo selectedUser={selectedUser}/>
+                isProfileVisible && <ProfileInfo selectedUser={selectedUser} />
             }
         </>
     )
