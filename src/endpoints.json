@@ -2,7 +2,7 @@
     "login": "http://localhost:3100/auth/login",
     "register": "http://localhost:3100/auth/register",
     "logout": "http://localhost:3100/auth/logout",
-    "refreshToken": "http://localhost:3100/auth/refresh-token",
+    "refreshTokens": "http://localhost:3100/auth/refresh-tokens",
     "imageKitToken": "http://localhost:3100/auth/imagekit-token",
 
     "getUserById": "http://localhost:3100/users/",
