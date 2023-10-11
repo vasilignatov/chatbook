@@ -8,6 +8,7 @@ import ChatareaHeader from './ChatareaHeader';
 import ChatareaMessages from './ChatareaMessages';
 import ChatareaUserActions from './ChatareaUserActions';
 import ProfileInfo from '../ProfileInfo/ProfileInfo';
+import useRefreshTokens from '../../hooks/useRefreshTokens';
 import { useAuth } from '../../contexts/AuthContext';
 import { socket } from '../../socket';
 
@@ -21,6 +22,7 @@ const Chatarea = () => {
     const [selectedUser, setSelectedUser] = useState({});
     const [chatMessages, setChatMessages] = useState([]);
     const [users, setUsers] = useState([]);
+
 
     useEffect(() => {
         (async () => {

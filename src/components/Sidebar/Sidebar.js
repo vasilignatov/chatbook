@@ -2,18 +2,15 @@ import HistoryCard from './HistoryCard';
 import { socket } from '../../socket';
 import { useEffect, useState } from 'react';
 import { getRecentChat } from '../../services/chatService';
-
+import useRefreshTokens from '../../hooks/useRefreshTokens';
 const Sidebar = () => {
 
-    const [history, setHistory] = useState([]);
+    const [history, setHistory] = useState();
 
-    useEffect(() => {
-        const getData = async () => {
-            const data = await getRecentChat();
+    useRefreshTokens(getRecentChat)
+        .then((data) => {
             setHistory(data);
-        }
-        getData();
-    }, []);
+        });
 
     return (
         <aside className="sidebar">
@@ -47,14 +44,13 @@ const Sidebar = () => {
 
             {/* HISTORY CONTAINER */}
             <div className="sidebar__history">
-            
+
                 {
-                    history.map(x => <HistoryCard key={x.chatRoomId} userData={x} />)
+                    history?.map(x => <HistoryCard key={x.chatRoomId} userData={x} />)
                 }
 
             </div>
         </aside>
-
     )
 }
 
