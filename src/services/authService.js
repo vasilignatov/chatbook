@@ -17,7 +17,4 @@ export async function logout(refreshToken) {
     return await request(endpoints.logout, getOptions('POST', refreshToken));
 }
 
-export async function getImageKitAuthData() {
-    return await request(endpoints.imageKitToken, getOptions());
-}
 
