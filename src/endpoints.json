@@ -3,7 +3,6 @@
     "register": "http://localhost:3100/auth/register",
     "logout": "http://localhost:3100/auth/logout",
     "refreshTokens": "http://localhost:3100/auth/refresh-tokens",
-    "imageKitToken": "http://localhost:3100/auth/imagekit-token",
 
     "getUserById": "http://localhost:3100/users/",
     "updateUserById": "http://localhost:3100/users/",
@@ -12,7 +11,6 @@
     "getRecent": "http://localhost:3100/chat",
     "getChatByRoomId": "http://localhost:3100/chat/",
     "initiate": "http://localhost:3100/chat/initiate",
-    "postMessage": "http://localhost:3100/chat/",
 
     "uploadImg": "https://upload.imagekit.io/api/v1/files/upload"
 }
