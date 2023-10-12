@@ -25,7 +25,7 @@ function App() {
   const { isAuthenticated, user } = useAuth();
   const [isConnected, setIsConnected] = useState(false);
 
-  useEffect(() => { 
+  useEffect(() => {
     function onConnect() {
       setIsConnected(true);
     }
@@ -52,10 +52,10 @@ function App() {
     }
   }, []);
 
-  useEffect(()=> {
-    if(isAuthenticated) {;
-      socket.emit('identity',user._id);
-    } 
+  useEffect(() => {
+    if (isAuthenticated) {
+      socket.emit('identity', user._id);
+    }
   }, [isAuthenticated]);
   return (
     <>
