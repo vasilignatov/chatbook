@@ -12,7 +12,3 @@ export async function getChatMessagesByRoomId(roomId) {
 export async function initiate(userIds, type = 'c2c') {
     return await request(endpoints.initiate, getOptions('POST', { type, userIds }));
 }
-
-export async function postMessage(roomId, message) {
-    return await request(endpoints.postMessage + roomId, getOptions('POST', message));
-}
