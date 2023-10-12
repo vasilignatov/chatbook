@@ -3,14 +3,31 @@ import { socket } from '../../socket';
 import { useEffect, useState } from 'react';
 import { getRecentChat } from '../../services/chatService';
 import useRefreshTokens from '../../hooks/useRefreshTokens';
+import { useSocketContext } from '../../contexts/SoketContext';
+
 const Sidebar = () => {
 
     const [history, setHistory] = useState();
+    const { newMessage, setNewMessage } = useSocketContext();
 
-    useRefreshTokens(getRecentChat)
-        .then((data) => {
-            setHistory(data);
-        });
+
+    useEffect(() => {
+        (async() => {
+            const historyData = await getRecentChat();
+            setHistory(historyData); 
+        })();
+
+        const recieveMessageListener = (message) => {
+            console.log('Message recieved from sidebar', message);
+            setNewMessage(message);
+        }
+
+        socket.on('receive_message', recieveMessageListener);
+
+        return () => {
+            socket.off('receive_message', recieveMessageListener);
+        }
+    }, [newMessage]);
 
     return (
         <aside className="sidebar">
