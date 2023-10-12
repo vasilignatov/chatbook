@@ -57,7 +57,6 @@ const Header = () => {
         setIsVisibleSearch(false);
         // create room
         const room = await chatService.initiate([userId]);
-        console.log(room);
         // navigate to room
         navigate(`messages/${room.chatRoomId}`);
         // update sidebar with new room

@@ -1,24 +1,21 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
-import { useSelectedUser } from '../../contexts/SelectedUserContext';
+import useRefreshTokens from '../../hooks/useRefreshTokens';
 import { useAuth } from '../../contexts/AuthContext';
 import { getUserById } from '../../services/userService';
 
 const HistoryCard = ({ userData }) => {
     const { user } = useAuth();
     const [friend, setFriend] = useState({});
-    // const [lastMessage, setLastMessage] = useState();
 
-    useEffect(() => {
-        async function fetchData() {
-            const chatRoomFriendId = userData.roomInfo.userIds.filter(id => id != user._id)[0];
-            const friendInfo = await getUserById(chatRoomFriendId);
+    const chatRoomFriendId = userData.roomInfo.userIds.filter(id => id != user._id)[0];
+
+    useRefreshTokens(getUserById, chatRoomFriendId)
+        .then((friendInfo) => {
             setFriend(friendInfo);
-        }
-        fetchData();
-    }, []);
-    
+        });
+
+
     return (
         <NavLink
             to={`messages/${userData.chatRoomId}`}
@@ -30,7 +27,7 @@ const HistoryCard = ({ userData }) => {
         >
             <div className="sidebar__history__cell__img_wp">
                 <img
-                    src={friend.imageUrl}
+                    src={friend?.imageUrl}
                     alt="User image" />
             </div>
 
