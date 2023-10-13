@@ -15,7 +15,6 @@ const ChatareaMessages = ({ roomData }) => {
 
     useEffect(() => {
         const userIsTypingHandler = (value) => {
-            console.log('value from socket handler: ', value);
             setUserIsTyping(value);
         }
 

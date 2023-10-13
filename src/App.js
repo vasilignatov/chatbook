@@ -57,6 +57,7 @@ function App() {
       socket.emit('identity', user._id);
     }
   }, [isAuthenticated]);
+  
   return (
     <>
       <RouterProvider router={router} />

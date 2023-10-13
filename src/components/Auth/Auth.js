@@ -36,7 +36,6 @@ const Login = () => {
         setErrorMsg('');
 
         const { user, tokens } = await login(email, password);
-        console.log({user, tokens});
         onLogin({ user, tokens });
         
         navigate('/');

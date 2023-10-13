@@ -22,7 +22,6 @@ function SettingsModal({ show, handleClose }) {
             delete formData.imageUrl;
         } else {
             const covertedImage = await convertBase64(formData.imageUrl);
-            console.log(formData);
             formData.imageName = formData.imageUrl.name;
             formData.imageUrl = covertedImage;
         }

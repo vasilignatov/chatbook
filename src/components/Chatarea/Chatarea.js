@@ -43,7 +43,6 @@ const Chatarea = () => {
 
     useEffect(() => {
         const recieveMessageListener = (message) => {
-            console.log('Message recieved', message);
             setChatMessages([...chatMessages, message]);
         }
 

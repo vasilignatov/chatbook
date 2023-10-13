@@ -18,7 +18,6 @@ const Sidebar = () => {
         })();
 
         const recieveMessageListener = (message) => {
-            console.log('Message recieved from sidebar', message);
             setNewMessage(message);
         }
 

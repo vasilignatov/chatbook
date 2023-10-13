@@ -15,7 +15,6 @@ const useRefreshTokens = async (requestCb, param) => {
                 onRefreshTokens(refreshedTokens);
                 // make the same request again
                 const newJsonResponse = await requestCb();
-                    console.log(newJsonResponse);
                 return setData(newJsonResponse);
             }
             setData(jsonResponse);

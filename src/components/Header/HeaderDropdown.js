@@ -17,7 +17,6 @@ const HeaderDropdown = () => {
 
     async function logout() {
         const response = await authService.logout({ refreshToken: tokens.refreshToken });
-        console.log(response);
 
         if (response.logout) {
             return onLogout();
