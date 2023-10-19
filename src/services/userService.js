@@ -1,4 +1,4 @@
-import endpoints from '../endpoints.json';
+import endpoints from '../endpoints.js';
 import { request, getOptions } from './utils.js';
 
 export async function getUserById(userId) {

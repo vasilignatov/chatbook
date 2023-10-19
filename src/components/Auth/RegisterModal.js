@@ -1,5 +1,5 @@
 import './RegisterModal.css';
-import endpoints from '../../endpoints.json';
+import endpoints from '../../endpoints.js';
 
 import { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
