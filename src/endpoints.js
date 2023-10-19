@@ -1,4 +1,4 @@
-const host = 'https://chatbook-rest-api.onrender.com/';
+const host = 'https://chatbook-rest-api.onrender.com';
 
 export default {
     "login": `${host}/auth/login`,
