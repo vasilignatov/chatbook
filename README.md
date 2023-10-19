@@ -3,10 +3,9 @@
 ## Project Introduction
 Chatbook is Messanger clone application created with MERN stack and socket.io for real time chatting.
 This repo represents the Frontend part of the application. You can find the backend repo [here](https://github.com/vasilignatov/chatbook-rest-api).\
-[Live Demo](https://main--playful-daifuku-0487b1.netlify.app/)
+[Live Demo](https://main--sensational-kangaroo-59d175.netlify.app/)
 
 ## Features
-
 - JWT Authentication
 - One to one chating
 - Search friends 
@@ -21,6 +20,11 @@ This repo represents the Frontend part of the application. You can find the back
 
 **email:** pesho@abv.bg\
 **password:** 123ASDasd
+
+## Deploy
+- Database: MongoDB Atlas
+- Back-end: Render
+- Front-end: Netlify
 
 ## How to Use
 **1.** Clone repository:
