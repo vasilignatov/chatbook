@@ -1,5 +1,5 @@
 import { io } from 'socket.io-client';
 
-const URL = 'http://localhost:3100';
+const URL = 'https://chatbook-rest-api.onrender.com';
 
 export const socket = io(URL);
